@@ -1,22 +1,22 @@
 <template>
   <aside
-    class="flex flex-col justify-between flex-none w-3/4 h-screen px-4 py-10 border-r-2 fixed md:relative md:w-1/4 border-secondary"
+    class="flex flex-col justify-between flex-none w-3/4 h-screen px-4 py-5 border-r-2 fixed md:relative md:w-1/4 border-secondary"
   >
-    <ul class="flex flex-col items-center font-semibold tracking-wider">
-      <li>
+    <ul class="flex flex-col items-start font-semibold tracking-wider">
+      <li class="self-center">
         <img
-          class="w-20 h-20 border-2 border-double rounded-full border-primary"
-          src="https://pbs.twimg.com/profile_images/1339914545616306176/RL3BryOf_400x400.jpg"
+          class="w-24 h-24 border-4 border-double rounded-full border-primary"
+          src="~/assets/images/prof-pic.jpg"
           alt="Jeremy Ward"
         />
       </li>
       <li>
         <nuxt-link to="/about" @click="console.log('hey there')">
-          /ReadMe
+          ReadMe
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/"> /Blog </nuxt-link>
+        <nuxt-link to="/"> Blog </nuxt-link>
       </li>
       <!-- <li> -->
       <!-- <nuxt-link to="/portfolio"> /Works </nuxt-link> -->
@@ -50,17 +50,17 @@ export default {
       socials: [
         {
           id: 'github',
-          text: '/GitHub',
+          text: 'GitHub',
           href: 'https://github.com/basicbrogrammer',
         },
         {
           id: 'twitter',
-          text: '/Twitter',
+          text: 'Twitter',
           href: 'https://twitter.com/basicbrogrammer',
         },
         {
           id: 'instagram',
-          text: '/Instagram',
+          text: 'Instagram',
           href: 'https://instagram.com/basicbrogrammer',
         },
       ],
@@ -74,6 +74,11 @@ li {
   margin: 0.5rem 0;
 }
 aside {
-  background-color: #feecfb;
+  background-color: #f4f0ec;
+}
+
+li > a::before {
+  content: '/';
+  color: #ff124f;
 }
 </style>
