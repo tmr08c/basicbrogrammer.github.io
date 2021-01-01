@@ -1,11 +1,15 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">About</h1>
-    </div>
+    <nuxt-content :document="article" class="my-2" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $content, params }) {
+    const article = await $content('about').fetch()
+
+    return { article }
+  },
+}
 </script>

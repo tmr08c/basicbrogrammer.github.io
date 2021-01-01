@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-auto w-full md:w-3/4">
     <ArticleCard
       v-for="article in articles"
       :key="article.slug"
@@ -15,7 +15,7 @@ export default {
   components: { ArticleCard },
   async asyncData({ $content, params }) {
     const articles = await $content('articles', params.slug)
-      .only(['title', 'description', 'img', 'slug', 'tags'])
+      .only(['title', 'description', 'img', 'slug', 'tags', 'cover_image'])
       .sortBy('createdAt', 'asc')
       .fetch()
 

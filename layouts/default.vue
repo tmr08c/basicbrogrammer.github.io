@@ -1,7 +1,7 @@
 <template>
   <main>
     <div
-      class="top-0 flex items-center w-screen h-10 border-b-2 md:hidden border-secondary"
+      class="navbar fixed bottom-0 flex items-center w-screen h-10 border-t-2 md:hidden border-secondary z-50"
     >
       <button
         class="btn-sidebar color-primary focus:outline-none focus:shadow-outline"
@@ -22,11 +22,15 @@
         >BasicBrogrammer</nuxt-link
       >
     </div>
-    <div class="flex">
+    <div class="main-body">
       <transition name="sidebar-slide">
         <SideBar v-if="showSideBar" />
       </transition>
-      <article class="flex-grow p-4 mx-auto">
+      <article class="w-screen p-4 md:w-3/4">
+        <Banner>
+          <h2><b>WARNING:</b> Work in Progress.</h2>
+          <p>Some Pages may be unfinished or broken. Enjoy.</p>
+        </Banner>
         <Nuxt />
       </article>
     </div>
@@ -34,17 +38,19 @@
 </template>
 <script>
 import SideBar from '@/components/SideBar'
+import Banner from '@/components/Banner'
 
 export default {
-  components: { SideBar },
+  components: { SideBar, Banner },
   data() {
     return {
       sideNavOpen: false,
+      windowWidth: window.innerWidth,
     }
   },
   computed: {
     showSideBar() {
-      return window.innerWidth > 500 || this.sideNavOpen
+      return this.windowWidth > 767 || this.sideNavOpen
     },
     sidebarToggleIcon() {
       return this.sideNavOpen
@@ -56,6 +62,11 @@ export default {
     $route() {
       this.sideNavOpen = false
     },
+  },
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth
+    })
   },
 }
 </script>
@@ -71,6 +82,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background-color: #f4f0ec;
+}
+.navbar {
   background-color: #f4f0ec;
 }
 
@@ -124,5 +138,19 @@ html {
 .sidebar-slide-leave-to {
   transform: translateX(-75px);
   opacity: 0;
+}
+
+/* above small */
+@media only screen and (min-width: 767px) {
+  article {
+    margin-left: 25%;
+  }
+}
+
+/* small */
+@media only screen and (max-width: 767px) {
+  .main-body {
+    height: 95vh;
+  }
 }
 </style>

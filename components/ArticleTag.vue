@@ -17,6 +17,9 @@ export default {
 span {
   @apply p-1 m-1 border-2 rounded-lg border-current font-mono;
 }
+span::before {
+  content: '#';
+}
 .react {
   color: #61dafb;
   background-color: #282c34;

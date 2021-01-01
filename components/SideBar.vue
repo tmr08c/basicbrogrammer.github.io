@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="flex flex-col justify-between flex-none w-3/4 h-screen px-4 py-5 border-r-2 fixed md:relative md:w-1/4 border-secondary"
+    class="z-40 flex flex-col justify-between w-3/4 px-4 py-5 border-r-2 fixed md:w-1/4 border-secondary"
   >
     <ul class="flex flex-col items-start font-semibold tracking-wider">
       <li class="self-center">
@@ -12,7 +12,7 @@
       </li>
       <li>
         <nuxt-link to="/about" @click="console.log('hey there')">
-          ReadMe
+          About
         </nuxt-link>
       </li>
       <li>
@@ -70,11 +70,18 @@ export default {
 </script>
 
 <style scoped>
-li {
-  margin: 0.5rem 0;
+/* small */
+@media only screen and (max-width: 767px) {
+  aside {
+    height: 95%;
+  }
 }
 aside {
   background-color: #f4f0ec;
+  @apply h-screen;
+}
+li {
+  margin: 0.5rem;
 }
 
 li > a::before {

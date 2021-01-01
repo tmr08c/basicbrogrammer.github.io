@@ -339,7 +339,6 @@ Currently, this is my favorite way to [with some extra magic I'll blog about lat
  - No added dependencies.
  - No side effects on global state that have to be memorized.
  - Each interation is mapped to a single encapsulated action.
- - Gabe and Zach can you think of any other benefits?
 
 Putting it all together.
 

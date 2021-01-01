@@ -1,0 +1,29 @@
+.nuxt-content h1 {
+  color: #ff124f;
+  @apply font-bold text-2xl;
+  @apply my-1;
+}
+.nuxt-content h2 {
+  color: #ff124f;
+  @apply font-bold text-xl my-1;
+}
+.nuxt-content h3 {
+  color: #ff124f;
+  @apply font-bold text-lg my-1;
+}
+.nuxt-content ul {
+  list-style-type: disc;
+  padding: 0.25rem 1.25rem;
+}
+.nuxt-content {
+  font-size: 1.1em;
+}
+.nuxt-content .nuxt-content-highlight {
+  @apply border-2 rounded-lg my-1;
+}
+.nuxt-content img {
+  margin: 0 auto;
+}
+.nuxt-content a {
+  @apply font-semibold text-blue-500;
+}
