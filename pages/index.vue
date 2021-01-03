@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto w-full md:w-3/4">
+  <div>
     <ArticleCard
       v-for="article in articles"
       :key="article.slug"

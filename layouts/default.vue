@@ -27,11 +27,13 @@
         <SideBar v-if="showSideBar" />
       </transition>
       <article class="w-screen p-4 md:w-3/4">
-        <Banner>
-          <h2><b>WARNING:</b> Work in Progress.</h2>
-          <p>Some Pages may be unfinished or broken. Enjoy.</p>
-        </Banner>
-        <Nuxt />
+        <div class="mx-auto w-full md:w-3/4">
+          <Banner>
+            <h2><b>WARNING:</b> Work in Progress.</h2>
+            <p>Some Pages may be unfinished or broken. Enjoy.</p>
+          </Banner>
+          <Nuxt />
+        </div>
       </article>
     </div>
   </main>
