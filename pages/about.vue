@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="about-page">
     <nuxt-content :document="article" class="my-2" />
   </div>
 </template>
@@ -13,3 +13,9 @@ export default {
   },
 }
 </script>
+
+<style>
+#about-page p {
+  @apply my-5;
+}
+</style>
