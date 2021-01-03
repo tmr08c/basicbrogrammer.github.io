@@ -1,5 +1,7 @@
 <template>
-  <span :class="tag">{{ tag }}</span>
+  <nuxt-link :class="tag" :to="{ name: 'index', query: { tag } }">{{
+    tag
+  }}</nuxt-link>
 </template>
 
 <script>
@@ -14,11 +16,19 @@ export default {
 </script>
 
 <style scoped>
-span {
+a {
   @apply p-1 m-1 border-2 rounded-lg border-current font-mono;
 }
-span::before {
+a::before {
   content: '#';
+}
+.vue {
+  color: #35495e;
+  background-color: #41b883;
+}
+.github {
+  color: black;
+  background-color: white;
 }
 .react {
   color: #61dafb;

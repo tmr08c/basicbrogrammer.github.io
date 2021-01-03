@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 rounded-lg border-primary">
+  <div class="my-4 border-2 rounded-lg border-primary">
     <nuxt-link :to="{ name: 'blog-slug', params: { slug: article.slug } }">
       <div
         class="cover-img"

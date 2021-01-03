@@ -13,9 +13,11 @@ import ArticleCard from '@/components/ArticleCard'
 
 export default {
   components: { ArticleCard },
-  async asyncData({ $content, params }) {
-    const articles = await $content('articles', params.slug)
+  watchQuery: ['tag'],
+  async asyncData({ $content, params, query }) {
+    const articles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'tags', 'cover_image'])
+      .where({ tags: { $contains: query.tag || '' } })
       .sortBy('createdAt', 'asc')
       .fetch()
 
