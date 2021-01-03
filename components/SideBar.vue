@@ -4,11 +4,13 @@
   >
     <ul class="flex flex-col items-start font-semibold tracking-wider">
       <li class="self-center">
-        <img
-          class="w-24 h-24 border-4 border-double rounded-full border-primary"
-          src="~/assets/images/prof-pic.jpg"
-          alt="Jeremy Ward"
-        />
+        <nuxt-link :to="{ name: 'index' }">
+          <img
+            class="w-24 h-24 border-4 border-double rounded-full border-primary"
+            src="~/assets/images/prof-pic.jpg"
+            alt="Jeremy Ward"
+          />
+        </nuxt-link>
       </li>
       <li>
         <nuxt-link to="/about" @click="console.log('hey there')">
@@ -87,5 +89,8 @@ li {
 li > a::before {
   content: '/';
   color: #ff124f;
+}
+li:first-child > a::before {
+  content: '';
 }
 </style>
