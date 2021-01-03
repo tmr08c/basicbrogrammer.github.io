@@ -4,12 +4,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 3
+
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-    - run: npm install -g axios
+    - run: npm install -g @github-docs/frontmatter node-fetch
+    - run: npm link @github-docs/frontmatter node-fetch
     - run: node dev-to.js
       env:
         DEV_TOKEN: ${{ secrets.DEV_TO }}
