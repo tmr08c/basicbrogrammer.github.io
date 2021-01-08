@@ -82,9 +82,9 @@ Let's go ahead and solve that in the `TimelineContext`.
     const actions = { setPosts, setSelectedPost, setSelectedComment }
 
     return (
-      <AuthContext.Provider value={{ state, actions}}>
+      <TimelineContext.Provider value={{ state, actions}}>
         {children}
-      </AuthContext.Provider>
+      </TimelineContext.Provider>
     );
   };
 ```
