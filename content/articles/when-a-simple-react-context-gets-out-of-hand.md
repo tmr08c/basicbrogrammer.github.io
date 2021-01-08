@@ -75,8 +75,8 @@ Let's go ahead and solve that in the `TimelineContext`.
 ```javascript
   const TimelineContextProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
-    const [ selectedPost, setSelectedPost] useState(null)
-    const [ selectedComment, setSelectedComment] useState(null)
+    const [selectedPost, setSelectedPost] = useState(null)
+    const [selectedComment, setSelectedComment] = useState(null)
 
     const state = { posts, selectedPost, selectedComment };
     const actions = { setPosts, setSelectedPost, setSelectedComment }
@@ -104,8 +104,8 @@ This is fairly simple. We can just throw in a `useEffect` and boom.
 ```javascript
   const TimelineContextProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
-    const [ selectedPost, setSelectedPost] useState(null)
-    const [ selectedComment, setSelectedComment] useState(null)
+    const [selectedPost, setSelectedPost] = useState(null)
+    const [selectedComment, setSelectedComment] = useState(null)
 
     const state = { posts, selectedPost, selectedComment };
     const actions = { setPosts, setSelectedPost, setSelectedComment }
