@@ -126,7 +126,7 @@ This is fairly simple. We can just throw in a `useEffect` and boom.
 
 Now let's say for testing purposes we want to add initial{SelectedPost and SelectedComment}. Stupid simple. Or is it?
 
-The way we currently have it set up, the useEffect will set our `initialSelectedComment` to null on the first render. OOOO no a side useEffect!!!
+The way we currently have it set up, the `useEffect` will set our `initialSelectedComment` to `null` on the first render. OOOO no a side useEffect!!!
 
 So our context then turns into:
 
@@ -212,7 +212,7 @@ Not a huge win IMO, but now the team is happier.
 
 After working with React hooks for a year, I've come to the conclusion that `useEffect` in a context is probably a bad idea. (I'd love to see examples where you've made this work BTW).
 
-A more concrete rule that I've landed on is that we should not have a useEffect in our app that relies on global state. I kind of see this a sharp knife that could easily poke your eye out. It raises the barrier to work on a project for people that don't work in the frontend day in and day out. Even for someone working in the codebase, it's something they always have to keep in the back of their mind. "If I change {X}, this callback will run, and do I need to modify it?".
+A more concrete rule that I've landed on is that we should not have a `useEffect` in our app that relies on global state. I kind of see this a sharp knife that could easily poke your eye out. It raises the barrier to work on a project for people that don't work in the frontend day in and day out. Even for someone working in the codebase, it's something they always have to keep in the back of their mind. "If I change {X}, this callback will run, and do I need to modify it?".
 
 My solution to this is to always (well prolly 95% of the time) use `useReducer` in global state and to never have a `useEffect` depend on a piece of global state.
 
@@ -229,7 +229,7 @@ const initialState = {
 };
 ```
 
-Well, that was easy enough! Defining our initial state lets us see all of our global state at a glance. Any time we want to add something to our global state, we can start by adding a sensible default to our initialState object. For example, `isLoggedIn` is initially false, and `posts` is initially an empty array.
+Well, that was easy enough! Defining our initial state lets us see all of our global state at a glance. Any time we want to add something to our global state, we can start by adding a sensible default to our `initialState` object. For example, `isLoggedIn` is initially false, and `posts` is initially an empty array.
 
 ## Reducery, my dear Watson
 
