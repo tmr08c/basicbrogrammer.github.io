@@ -331,7 +331,7 @@ const AppProvider = ({ initialState, reducer, children }) => {
 };
 ```
 
-Well, that's a lot cleaner. My team works in a [Rails](https://rubyonrails.org/) monolith which is why I've decided to have `initialState` and the `reducer` to be props for the AppProvider. This approach allows us to use the same provider for any React app that we decide to create.
+Well, that's a lot cleaner. My team works in a [Rails](https://rubyonrails.org/) monolith which is why I've decided to have `initialState` and the `reducer` be props for the `AppProvider`. This approach allows us to use the same provider for any React app that we decide to create.
 
 # Conclusion
 
