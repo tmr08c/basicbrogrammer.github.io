@@ -1,3 +1,51 @@
+html {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background-color: #f4f0ec;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.color-primary {
+  color: #ff124f;
+}
+.color-secondary {
+  color: #7a04eb;
+}
+.border-primary {
+  border-color: #ff124f;
+}
+.border-secondary {
+  border-color: #7a04eb;
+}
+
+.button--primary {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #ff124f;
+  color: #ff124f;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+
+.button--primary:hover {
+  color: #fff;
+  background-color: #ff124f;
+}
+
+
 .nuxt-content h1 {
   color: #ff124f;
   @apply font-bold text-2xl;
@@ -21,6 +69,11 @@
 .nuxt-content .nuxt-content-highlight {
   @apply border-2 rounded-lg my-1;
 }
+
+.nuxt-content p > code {
+  @apply border-2 rounded-lg;
+}
+
 .nuxt-content img {
   margin: 0 auto;
 }

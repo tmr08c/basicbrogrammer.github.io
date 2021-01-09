@@ -28,10 +28,6 @@
       </transition>
       <article class="w-screen p-4 md:w-3/4">
         <div class="mx-auto w-full md:w-3/4">
-          <Banner>
-            <h2><b>WARNING:</b> Work in Progress.</h2>
-            <p>Some Pages may be unfinished or broken. Enjoy.</p>
-          </Banner>
           <Nuxt />
         </div>
       </article>
@@ -40,10 +36,9 @@
 </template>
 <script>
 import SideBar from '@/components/SideBar'
-import Banner from '@/components/Banner'
 
 export default {
-  components: { SideBar, Banner },
+  components: { SideBar },
   data() {
     return {
       sideNavOpen: false,
@@ -74,58 +69,12 @@ export default {
 </script>
 
 <style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  background-color: #f4f0ec;
-}
 .navbar {
   background-color: #f4f0ec;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 .btn-sidebar {
   @apply px-3 rounded-lg;
-}
-
-.color-primary {
-  color: #ff124f;
-}
-.color-secondary {
-  color: #7a04eb;
-}
-.border-primary {
-  border-color: #ff124f;
-}
-.border-secondary {
-  border-color: #7a04eb;
-}
-
-.button--primary {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #ff124f;
-  color: #ff124f;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--primary:hover {
-  color: #fff;
-  background-color: #ff124f;
 }
 
 /* Enter and leave animations can use different
@@ -153,6 +102,7 @@ html {
 @media only screen and (max-width: 767px) {
   .main-body {
     height: 95vh;
+    overflow-y: auto;
   }
 }
 </style>

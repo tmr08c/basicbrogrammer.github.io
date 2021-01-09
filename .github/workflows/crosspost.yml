@@ -1,0 +1,19 @@
+name: CrossPost
+
+on:
+  push:
+    paths:
+    - 'content/articles/*.md'
+
+jobs:
+  crosspost:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - uses: basicBrogrammer/crosspost-markdown@v0.1.0
+      with:
+        content-dir: 'content/articles/'
+        dev-to-token: ${{ secrets.DEV_TO }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -43,4 +43,8 @@ a::before {
   background-color: #764abc;
   border-color: black;
 }
+.opensource {
+  color: white;
+  background-color: green;
+}
 </style>

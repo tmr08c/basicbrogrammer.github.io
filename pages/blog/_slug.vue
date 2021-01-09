@@ -4,7 +4,9 @@
     <h1 class="color-primary text-3xl font-extrabold my-1">
       {{ article.title }}
     </h1>
-    <ArticleTag v-for="tag in tags" :key="tag" :tag="tag" />
+    <div class="m-2 flex flex-wrap">
+      <ArticleTag v-for="tag in tags" :key="tag" :tag="tag" />
+    </div>
     <nuxt-content :document="article" class="my-2" />
   </div>
 </template>

@@ -17,7 +17,7 @@ export default {
   async asyncData({ $content, params, query }) {
     const articles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'tags', 'cover_image'])
-      .where({ tags: { $contains: query.tag || '' } })
+      .where({ tags: { $contains: query.tag || '' }, published: true })
       .sortBy('createdAt', 'asc')
       .fetch()
 
