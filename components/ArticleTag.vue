@@ -38,6 +38,10 @@ a::before {
   color: black;
   background-color: #fcdc00;
 }
+.typescript {
+  color: white;
+  background-color: #007acc;
+}
 .redux {
   color: white;
   background-color: #764abc;

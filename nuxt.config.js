@@ -48,4 +48,15 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+  // needed to generate dynamic tags that aren't in links
+  generate: {
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const dynamicRoutes = await $content('articles').only(['slug']).fetch()
+
+      return dynamicRoutes.map((myroute) =>
+        myroute.slug === '/index' ? '/' : '/blog/' + myroute.slug
+      )
+    },
+  },
 }
