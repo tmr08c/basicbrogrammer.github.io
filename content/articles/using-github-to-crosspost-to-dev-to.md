@@ -1,7 +1,7 @@
 ---
 title: Want to crosspost to dev.to? There's a GitHub action for that.
 published: false
-description: When I create a new markdown article, I don't want to have copy and paste that markdown to multiple other blog sites. So, why not let an octocat handle this work for me with a GitHub action?
+description: When I create a new markdown article, I don't want to have to copy and paste that markdown to multiple other blog sites. So, why not let an Octokit handle this work for me with a GitHub action?
 tags: typescript, github, opensource, actions
 cover_image: https://cdn.nanalyze.com/uploads/2018/07/automation-rpa-teaser.jpg
 ---
@@ -25,7 +25,7 @@ The first order of business is to find out if your last commit contains articles
 
 <br>
 
-In order to do so, we first require 2 inputs from the GitHub workflow: github-token & content-dir. These 2 arguments will be retrieved using the [@actions/core](https://github.com/actions/toolkit/tree/main/packages/core) package. The `github-token` argument will be used to initiate an [Octokit Rest client](https://octokit.github.io/rest.js/v18/) using the [@actions/github](https://github.com/actions/toolkit/tree/main/packages/github) package. We can use this instance to request the commit data. Once we have the response, all we have to do is iterate over the list of files and see if the filename match a given content directory (from the `content-dir` argument).
+In order to do so, we first require two inputs from the GitHub workflow: `github-token` & `content-dir`. These two arguments will be retrieved using the [@actions/core](https://github.com/actions/toolkit/tree/main/packages/core) package. The `github-token` argument will be used to initiate an [Octokit Rest client](https://octokit.github.io/rest.js/v18/) using the [@actions/github](https://github.com/actions/toolkit/tree/main/packages/github) package. We can use this instance to request the commit data. Once we have the response, all we have to do is iterate over the list of files and see if the filename match a given content directory (from the `content-dir` argument).
 
 ```typescript
 import * as core from '@actions/core';
@@ -43,11 +43,10 @@ export const getFiles = async (): Promise<string[]> => {
     .map((file: any) => file.filename)
     .filter((filename: string) => filename.includes(core.getInput('content-dir')));
 };
-
 ```
 
 If this code finds markdown files, we will cycle through each file, sending it into a `publish` function.
-We will use node's file system [`readFileSync`](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options) function to read the file into memory. Then, using the [`@github-docs/frontmatter`](https://github.com/docs/frontmatter) package to parse the markdown so we can checkout the [frontmatter](https://jekyllrb.com/docs/front-matter/) which is just the "data" at the top of markdown files.
+We will use Node's file system [`readFileSync`](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options) function to read the file into memory. Then, use the [`@github-docs/frontmatter`](https://github.com/docs/frontmatter) package to parse the markdown so we can checkout the [frontmatter](https://jekyllrb.com/docs/front-matter/) which is just the "data" at the top of markdown files.
 
 <br>
 
@@ -170,7 +169,7 @@ Super simple.
 
 <br>
 
-Next step will be to run the crosspost-markdown action and pass in the necessary arguments (content-dir & dev-to-token). These can be set in the [secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) section of your repo's settings.
+Next step will be to run the `crosspost-markdown` action and pass in the necessary arguments (`content-dir` and `dev-to-token`). These can be set in the [secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) section of your repo's settings.
 
 ```yaml
 jobs:
